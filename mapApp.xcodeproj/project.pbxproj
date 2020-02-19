@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D18F535323FD7812005389DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F535223FD7812005389DF /* AppDelegate.swift */; };
-		D18F535523FD7812005389DF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F535423FD7812005389DF /* SceneDelegate.swift */; };
 		D18F535723FD7812005389DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F535623FD7812005389DF /* ViewController.swift */; };
 		D18F535A23FD7812005389DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18F535823FD7812005389DF /* Main.storyboard */; };
 		D18F535C23FD7816005389DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D18F535B23FD7816005389DF /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		D18F534F23FD7812005389DF /* mapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18F535223FD7812005389DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D18F535423FD7812005389DF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D18F535623FD7812005389DF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D18F535923FD7812005389DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D18F535B23FD7816005389DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,15 +54,54 @@
 		D18F535123FD7812005389DF /* mapApp */ = {
 			isa = PBXGroup;
 			children = (
-				D18F535223FD7812005389DF /* AppDelegate.swift */,
-				D18F535423FD7812005389DF /* SceneDelegate.swift */,
-				D18F535623FD7812005389DF /* ViewController.swift */,
-				D18F535823FD7812005389DF /* Main.storyboard */,
-				D18F535B23FD7816005389DF /* Assets.xcassets */,
-				D18F535D23FD7816005389DF /* LaunchScreen.storyboard */,
-				D18F536023FD7816005389DF /* Info.plist */,
+				D18F536A23FD7BA5005389DF /* Application */,
+				D18F536623FD7AC4005389DF /* Models */,
+				D18F536723FD7ACD005389DF /* Views */,
+				D18F536823FD7AD7005389DF /* Controllers */,
+				D18F536923FD7AF5005389DF /* Resources */,
 			);
 			path = mapApp;
+			sourceTree = "<group>";
+		};
+		D18F536623FD7AC4005389DF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D18F536723FD7ACD005389DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D18F535823FD7812005389DF /* Main.storyboard */,
+				D18F535D23FD7816005389DF /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D18F536823FD7AD7005389DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D18F535623FD7812005389DF /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D18F536923FD7AF5005389DF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D18F535B23FD7816005389DF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D18F536A23FD7BA5005389DF /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D18F535223FD7812005389DF /* AppDelegate.swift */,
+				D18F536023FD7816005389DF /* Info.plist */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,7 +177,6 @@
 			files = (
 				D18F535723FD7812005389DF /* ViewController.swift in Sources */,
 				D18F535323FD7812005389DF /* AppDelegate.swift in Sources */,
-				D18F535523FD7812005389DF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +322,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YPDU2X4R25;
-				INFOPLIST_FILE = mapApp/Info.plist;
+				INFOPLIST_FILE = mapApp/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +340,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YPDU2X4R25;
-				INFOPLIST_FILE = mapApp/Info.plist;
+				INFOPLIST_FILE = mapApp/Application/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
