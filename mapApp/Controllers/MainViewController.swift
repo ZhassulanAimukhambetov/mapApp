@@ -9,100 +9,54 @@
 import UIKit
 import MapKit
 
-class MainViewController: UIViewController, MKMapViewDelegate, MapViewControllerDelegate {
+class MainViewController: UIViewController {
     
     var segueIdentifire: String = ""
-    var firstLocation: CLLocation?
-    var secondLocation: CLLocation?
+    var firstPoint: Point?
+    var secondPoint: Point?
     
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var firstPointButton: UIButton!
+    @IBOutlet weak var secondPointButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
-        mapView.showsUserLocation = true
+        mapView.overrideUserInterfaceStyle = .light
     }
+    
     override func viewDidAppear(_ animated: Bool) {
-        guard let sourceLocation = firstLocation, let destinationLocation = secondLocation else { return }
-        route(sourceCoordinate: sourceLocation.coordinate, destinationCoordinate: destinationLocation.coordinate)
+        guard let firstPoint = firstPoint, let secondPoint = secondPoint else { return }
+        mapView.removeAnnotations(mapView.annotations)
+        mapView.removeOverlays(mapView.overlays)
+        RouteMapService.shared.route(firstPoint: firstPoint, secoondPoint: secondPoint, mapView: mapView)
     }
     
-    func getPoint(location: CLLocation) {
-        if segueIdentifire == "fromFirstPoint" {
-            firstLocation = location
-        } else {
-            secondLocation = location
-        }
-    }
-    
+    // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let identifire = segue.identifier, let mapVC = segue.destination as? MapViewController else { return }
-        
         segueIdentifire = identifire
         mapVC.mapViewControllerDelegate = self
     }
-    
+}
+//MARK: - MapViewControllerDelegate
+extension MainViewController: MapViewControllerDelegate {
+    func getPoint(point: Point) {
+        if segueIdentifire == "fromFirstPoint" {
+            firstPoint = point
+            firstPointButton.setTitle(point.title, for: .normal)
+        } else {
+            secondPoint = point
+            secondPointButton.setTitle(point.title, for: .normal)
+        }
+    }
+}
+//MARK: - MKMapViewrDelegate
+extension MainViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
             let renderer = MKPolylineRenderer(overlay: overlay)
-            renderer.strokeColor = UIColor.red
+        renderer.strokeColor = UIColor.red
             renderer.lineWidth = 4.0
-        
             return renderer
-    }
-    
-    func route(sourceCoordinate: CLLocationCoordinate2D, destinationCoordinate: CLLocationCoordinate2D) {
-
-        let sourcePlacemark = MKPlacemark(coordinate: sourceCoordinate, addressDictionary: nil)
-        let destinationPlacemark = MKPlacemark(coordinate: destinationCoordinate, addressDictionary: nil)
-        
-        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
-        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-        
-        let sourceAnnotation = MKPointAnnotation()
-        sourceAnnotation.title = "Times Square"
-        
-        if let location = sourcePlacemark.location {
-          sourceAnnotation.coordinate = location.coordinate
-        }
-        
-        
-        let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = "Empire State Building"
-        
-        if let location = destinationPlacemark.location {
-          destinationAnnotation.coordinate = location.coordinate
-        }
-        
-        // 6.
-        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
-        
-        // 7.
-        let directionRequest = MKDirections.Request()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .automobile
-        
-        // Calculate the direction
-        let directions = MKDirections(request: directionRequest)
-        
-        // 8.
-        directions.calculate {
-          (response, error) -> Void in
-          
-          guard let response = response else {
-            if let error = error {
-              print("Error: \(error)")
-            }
-            
-            return
-          }
-          
-          let route = response.routes[0]
-            self.mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-          
-          let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
-        }
     }
 }

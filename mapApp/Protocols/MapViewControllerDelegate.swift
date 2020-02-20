@@ -10,5 +10,5 @@ import Foundation
 import MapKit
 
 protocol MapViewControllerDelegate {
-    func getPoint(location: CLLocation)
+    func getPoint(point: Point)
 }

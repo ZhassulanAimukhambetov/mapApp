@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D1152DB723FE3214003E0702 /* RouteMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1152DB623FE3214003E0702 /* RouteMapService.swift */; };
+		D16A056423FE3CE900AE67D4 /* GeocoderMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A056323FE3CE900AE67D4 /* GeocoderMapService.swift */; };
 		D18F535323FD7812005389DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F535223FD7812005389DF /* AppDelegate.swift */; };
 		D18F535A23FD7812005389DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18F535823FD7812005389DF /* Main.storyboard */; };
 		D18F535C23FD7816005389DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D18F535B23FD7816005389DF /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D1152DB623FE3214003E0702 /* RouteMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapService.swift; sourceTree = "<group>"; };
+		D16A056323FE3CE900AE67D4 /* GeocoderMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderMapService.swift; sourceTree = "<group>"; };
 		D18F534F23FD7812005389DF /* mapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18F535223FD7812005389DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D18F535923FD7812005389DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -41,6 +45,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1152DB223FE3013003E0702 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				D18F537123FDB3D7005389DF /* MapViewControllerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		D1152DB323FE317E003E0702 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D1152DB623FE3214003E0702 /* RouteMapService.swift */,
+				D16A056323FE3CE900AE67D4 /* GeocoderMapService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		D18F534623FD7812005389DF = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +85,8 @@
 				D18F536623FD7AC4005389DF /* Models */,
 				D18F536723FD7ACD005389DF /* Views */,
 				D18F536823FD7AD7005389DF /* Controllers */,
+				D1152DB223FE3013003E0702 /* Protocols */,
+				D1152DB323FE317E003E0702 /* Services */,
 				D18F536923FD7AF5005389DF /* Resources */,
 			);
 			path = mapApp;
@@ -91,7 +114,6 @@
 			children = (
 				D18F536D23FD8014005389DF /* MainViewController.swift */,
 				D18F536B23FD7E20005389DF /* MapViewController.swift */,
-				D18F537123FDB3D7005389DF /* MapViewControllerDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -186,6 +208,8 @@
 			files = (
 				D18F537223FDB3D7005389DF /* MapViewControllerDelegate.swift in Sources */,
 				D18F537023FDA505005389DF /* Point.swift in Sources */,
+				D1152DB723FE3214003E0702 /* RouteMapService.swift in Sources */,
+				D16A056423FE3CE900AE67D4 /* GeocoderMapService.swift in Sources */,
 				D18F536E23FD8014005389DF /* MainViewController.swift in Sources */,
 				D18F536C23FD7E20005389DF /* MapViewController.swift in Sources */,
 				D18F535323FD7812005389DF /* AppDelegate.swift in Sources */,

@@ -19,11 +19,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebe-4Q-OHe">
-                                <rect key="frame" x="0.0" y="567" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="527" width="375" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="qFW-cN-tCL"/>
+                                    <constraint firstAttribute="height" constant="70" id="qFW-cN-tCL"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Select the first point...">
                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -32,11 +32,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aRa-ZS-pOd">
-                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="597" width="375" height="70"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="VTa-dw-aUC"/>
+                                    <constraint firstAttribute="height" constant="70" id="VTa-dw-aUC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="Select the second point...">
                                     <color key="titleColor" systemColor="systemBlueColor" red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -62,7 +62,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="Mes-am-BaO"/>
                     <connections>
+                        <outlet property="firstPointButton" destination="Ebe-4Q-OHe" id="JeV-ZA-7Te"/>
                         <outlet property="mapView" destination="1cK-Mc-Awx" id="pyk-Cf-HPU"/>
+                        <outlet property="secondPointButton" destination="aRa-ZS-pOd" id="Ha8-SK-fXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

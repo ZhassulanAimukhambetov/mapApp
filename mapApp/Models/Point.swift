@@ -9,7 +9,7 @@
 import Foundation
 
 struct Point {
-    let title: String
-    let latitude: Decimal
-    let longetude: Decimal
+    let title: String?
+    let latitude: Double
+    let longetude: Double
 }
