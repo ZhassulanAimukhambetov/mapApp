@@ -38,7 +38,7 @@ extension MapViewController: MKMapViewDelegate {
             } else if streetName != nil {
                 self.pointLabel.text = streetName!
             } else {
-                self.pointLabel.text = ""
+                self.pointLabel.text = "unknown"
             }
         }
     }

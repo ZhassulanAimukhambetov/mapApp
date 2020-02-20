@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		D1152DB723FE3214003E0702 /* RouteMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1152DB623FE3214003E0702 /* RouteMapService.swift */; };
+		D11B2FCE23FE67B00039CD21 /* MKMapItem+Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B2FCD23FE67B00039CD21 /* MKMapItem+Point.swift */; };
+		D11B2FD223FE70350039CD21 /* AnnotationMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B2FD123FE70350039CD21 /* AnnotationMapService.swift */; };
+		D11B2FD423FE78110039CD21 /* MKPointAnnotation+Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = D11B2FD323FE78110039CD21 /* MKPointAnnotation+Point.swift */; };
 		D16A056423FE3CE900AE67D4 /* GeocoderMapService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A056323FE3CE900AE67D4 /* GeocoderMapService.swift */; };
 		D18F535323FD7812005389DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18F535223FD7812005389DF /* AppDelegate.swift */; };
 		D18F535A23FD7812005389DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D18F535823FD7812005389DF /* Main.storyboard */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		D1152DB623FE3214003E0702 /* RouteMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteMapService.swift; sourceTree = "<group>"; };
+		D11B2FCD23FE67B00039CD21 /* MKMapItem+Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapItem+Point.swift"; sourceTree = "<group>"; };
+		D11B2FD123FE70350039CD21 /* AnnotationMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationMapService.swift; sourceTree = "<group>"; };
+		D11B2FD323FE78110039CD21 /* MKPointAnnotation+Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPointAnnotation+Point.swift"; sourceTree = "<group>"; };
 		D16A056323FE3CE900AE67D4 /* GeocoderMapService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeocoderMapService.swift; sourceTree = "<group>"; };
 		D18F534F23FD7812005389DF /* mapApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D18F535223FD7812005389DF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,8 +64,18 @@
 			children = (
 				D1152DB623FE3214003E0702 /* RouteMapService.swift */,
 				D16A056323FE3CE900AE67D4 /* GeocoderMapService.swift */,
+				D11B2FD123FE70350039CD21 /* AnnotationMapService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		D11B2FCC23FE67950039CD21 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D11B2FCD23FE67B00039CD21 /* MKMapItem+Point.swift */,
+				D11B2FD323FE78110039CD21 /* MKPointAnnotation+Point.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D18F534623FD7812005389DF = {
@@ -82,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				D18F536A23FD7BA5005389DF /* Application */,
+				D11B2FCC23FE67950039CD21 /* Extensions */,
 				D18F536623FD7AC4005389DF /* Models */,
 				D18F536723FD7ACD005389DF /* Views */,
 				D18F536823FD7AD7005389DF /* Controllers */,
@@ -207,12 +224,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D18F537223FDB3D7005389DF /* MapViewControllerDelegate.swift in Sources */,
+				D11B2FD223FE70350039CD21 /* AnnotationMapService.swift in Sources */,
 				D18F537023FDA505005389DF /* Point.swift in Sources */,
+				D11B2FD423FE78110039CD21 /* MKPointAnnotation+Point.swift in Sources */,
 				D1152DB723FE3214003E0702 /* RouteMapService.swift in Sources */,
 				D16A056423FE3CE900AE67D4 /* GeocoderMapService.swift in Sources */,
 				D18F536E23FD8014005389DF /* MainViewController.swift in Sources */,
 				D18F536C23FD7E20005389DF /* MapViewController.swift in Sources */,
 				D18F535323FD7812005389DF /* AppDelegate.swift in Sources */,
+				D11B2FCE23FE67B00039CD21 /* MKMapItem+Point.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

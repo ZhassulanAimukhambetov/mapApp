@@ -10,16 +10,12 @@ import Foundation
 import MapKit
 
 class RouteMapService {
-    static let shared = RouteMapService()
     
-    func route(firstPoint: Point, secoondPoint: Point, mapView: MKMapView) {
-        let sourceAnnotation = makeAnnotation(point: firstPoint)
-        let destinationAnnotation = makeAnnotation(point: secoondPoint)
-        
-        mapView.showAnnotations([sourceAnnotation, destinationAnnotation], animated: true)
-        
-        let sourceMapItem = makeMapItem(point: firstPoint)
-        let destinationMapItem = makeMapItem(point: secoondPoint)
+    static let route = RouteMapService()
+    
+    func buildRoute(firstPoint: Point, secondPoint: Point, completion: @escaping (MKRoute?, UIAlertController?) -> ()) {
+        let sourceMapItem = MKMapItem.mapItem(point: firstPoint)
+        let destinationMapItem = MKMapItem.mapItem(point: secondPoint)
         let directionRequest = MKDirections.Request()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationMapItem
@@ -30,29 +26,15 @@ class RouteMapService {
         directions.calculate {(response, error) -> Void in
             guard let response = response else {
                 if let error = error {
+                    let alert = UIAlertController(title: "Error", message: "Build a route from this geolocation is not possible", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
                     print("Error: \(error)")
+                    completion(nil, alert)
                 }
                 return
             }
             let route = response.routes[0]
-            mapView.addOverlay((route.polyline), level: MKOverlayLevel.aboveRoads)
-            let rect = route.polyline.boundingMapRect
-            mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+            completion(route, nil)
         }
-    }
-    private func makeAnnotation(point: Point) -> MKAnnotation {
-        let location = CLLocation(latitude: point.latitude, longitude: point.longetude)
-        let placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: nil)
-        let annotation = MKPointAnnotation()
-        annotation.title = point.title
-        if let location = placemark.location {
-            annotation.coordinate = location.coordinate
-        }
-        return annotation
-    }
-    private func makeMapItem(point: Point) -> MKMapItem {
-        let location = CLLocation(latitude: point.latitude, longitude: point.longetude)
-        let placemark = MKPlacemark(coordinate: location.coordinate, addressDictionary: nil)
-        return MKMapItem(placemark: placemark)
     }
 }
